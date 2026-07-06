@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: gitops-app
-          image: localhost:60913/gitops-app:latest
+          image: registry.kube-system.svc.cluster.local/gitops-app:v1.0.0
           ports:
             - containerPort: 3000
           envFrom:
