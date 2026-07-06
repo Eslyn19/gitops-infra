@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: gitops-app
-          image: 10.111.136.189/gitops-app:v1.0.1
+          image: 10.111.136.189/gitops-app:917f150c35745e8adde8cffc9e67c71ecc00b6d7
           ports:
             - containerPort: 3000
           envFrom:
