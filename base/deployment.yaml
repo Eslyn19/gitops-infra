@@ -14,9 +14,20 @@ spec:
       labels:
         app: gitops-app
     spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: gitops-app
-          image: localhost:60913/gitops-app:latest
+          image: localhost:5000/gitops-app:latest
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
           ports:
             - containerPort: 3000
           envFrom:
